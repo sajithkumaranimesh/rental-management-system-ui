@@ -10,7 +10,11 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './add-customer.component.css'
 })
 export class AddCustomerComponent {
-  public customer = {
+
+
+  public id: any;
+
+  public customer: any = {
     name: "",
     city: "",
     phoneNumber: ""
@@ -23,6 +27,16 @@ export class AddCustomerComponent {
       (data) => {
         console.log(data);
         this.service.retrieveAll();
+      }
+    )
+  }
+
+  private customerlist: any = [];
+
+
+  searchCustomer() {
+    this.service.retrieveAll().subscribe(
+      response => {
       }
     )
   }

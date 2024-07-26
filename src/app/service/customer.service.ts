@@ -14,6 +14,10 @@ export class CustomerService{
         return this.http.get('http://localhost:8080/customer-controller/get-all');
     }
 
+    retrieveById(id:any){
+        return this.http.get(`http://localhost:8080/customer-controller/get-by-id/${id}`)
+    }
+
     deleteCustomer(id:any){
         return this.http.delete(`http://localhost:8080/customer-controller/delete/${id}`);
     }
