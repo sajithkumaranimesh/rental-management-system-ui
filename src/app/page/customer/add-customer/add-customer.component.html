@@ -1,12 +1,12 @@
 <div class="m-4">
-    <input type="text" class="form-control" placeholder="Enter Name">
+    <input [(ngModel)]="customer.name" type="text" class="form-control" placeholder="Enter Name">
 </div>
 <div class="m-4">
-    <input type="text" class="form-control" placeholder="Enter City">
+    <input [(ngModel)]="customer.city" type="text" class="form-control" placeholder="Enter City">
 </div>
 <div class="m-4">
-    <input type="text" class="form-control" placeholder="Enter Phone Number">
+    <input [(ngModel)]="customer.phoneNumber" type="text" class="form-control" placeholder="Enter Phone Number">
 </div>
 <div class="m-4">
-    <button class="btn btn-primary">Submit</button>
+    <button (click)="persist()" class="btn btn-primary">Submit</button>
 </div>

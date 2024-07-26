@@ -1,0 +1,69 @@
+<table class="table border">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Rental Per Day</th>
+            <th scope="col">Finr Per Day</th>
+            <th scope="col">Available</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of itemList; index as i">
+            <td>{{i+1}}</td>
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.rentalPerDay}}</td>
+            <td>{{item.finePerDay}}</td>
+            <td>{{item.isAvailable}}</td>
+            <td><button (click)="deleteItem(item.id)" class="btn btn-danger">Delete</button></td>
+            <td><button (click)="editItem(item)" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+                Edit
+            </button></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="m-3">
+                    <input [(ngModel)]="seleceteditem.id" type="text" class="form-control" placeholder="Id" disabled>
+                </div>
+                <div class="m-3">
+                    <input [(ngModel)]="seleceteditem.name" type="text" class="form-control" placeholder="Name">
+                </div>
+                <div class="m-3">
+                    <input [(ngModel)]="seleceteditem.rentalPerDay" type="text" class="form-control" placeholder="rentalPerDay">
+                </div>
+                <div class="m-3">
+                    <input [(ngModel)]="seleceteditem.finePerDay" type="text" class="form-control" placeholder="finePerDay">
+                </div>
+                <div class="m-3">
+                    <select [(ngModel)]="seleceteditem.isAvailable" class="form-select" aria-label="Default select example">
+                        <option>Select Availability</option>
+                        <option value="true">Available</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button (click)="updateItem()" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

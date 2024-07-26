@@ -6,11 +6,56 @@
             <th scope="col">Name</th>
             <th scope="col">City</th>
             <th scope="col">Phone Number</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Edit</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Mark</td>
+        <tr *ngFor="let customer of customerList; index as i;">
+            <td>{{i+1}}</td>
+            <td>{{customer.id}}</td>
+            <td>{{customer.name}}</td>
+            <td>{{customer.city}}</td>
+            <td>{{customer.phoneNumber}}</td>
+            <td><button (click)="deleteCustomer(customer.id)" class="btn btn-danger">Delete</button></td>
+            <td><button (click)="updateCustomer(customer)" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                    Edit
+                </button></td>
         </tr>
     </tbody>
 </table>
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="m-3">
+                    <input [(ngModel)]="selectedCustomer.id" type="text" class="form-control" placeholder="Id" disabled>
+                </div>
+                <div class="m-3">
+                    <input [(ngModel)]="selectedCustomer.name" type="text" class="form-control" placeholder="Name">
+                </div>
+                <div class="m-3">
+                    <input [(ngModel)]="selectedCustomer.phoneNumber" type="text" class="form-control" placeholder="Phone">
+                </div>
+                <div class="m-3">
+                    <input [(ngModel)]="selectedCustomer.city" type="text" class="form-control" placeholder="City">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button (click)="saveUpdateCustomer()" type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

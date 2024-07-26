@@ -1,0 +1,19 @@
+<div class="m-4">
+    <input [(ngModel)]="item.name" type="text" class="form-control" placeholder="Enter name">
+</div>
+<div class="m-4">
+    <input [(ngModel)]="item.rentalPerDay" type="text" class="form-control" placeholder="Enter Rental Per Day">
+</div>
+<div class="m-4">
+    <input [(ngModel)]="item.finePerDay" type="text" class="form-control" placeholder="Enter Fine Per Day">
+</div>
+<div class="m-4">
+    <select [(ngModel)]="item.isAvailable" class="form-select" aria-label="Default select example">
+        <option>Select Availability</option>
+        <option value="true">Available</option>
+        <option value="false">No</option>
+    </select>
+</div>
+<div class="m-4">
+    <button (click)="saveItem()" class="btn btn-primary">Submit</button>
+</div>
