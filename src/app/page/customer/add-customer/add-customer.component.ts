@@ -30,17 +30,6 @@ export class AddCustomerComponent {
       }
     )
   }
-
-  private customerlist: any = [];
-
-
-  searchCustomer() {
-    this.service.retrieveAll().subscribe(
-      response => {
-      }
-    )
-  }
-
   clearText() {
     this.customer.name = "";
     this.customer.city = "";
