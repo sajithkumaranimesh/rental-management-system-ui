@@ -27,6 +27,7 @@ export class AddCustomerComponent {
       (data) => {
         console.log(data);
         this.service.retrieveAll();
+        this.clearText();
       }
     )
   }

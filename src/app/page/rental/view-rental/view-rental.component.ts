@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RentalService } from '../../../service/rental.service';
 
 @Component({
   selector: 'app-view-rental',
@@ -9,4 +10,13 @@ import { Component } from '@angular/core';
 })
 export class ViewRentalComponent {
 
+  public rental:any ={
+    
+  }
+  constructor(private service:RentalService){}
+
+
+  saveRental(){
+    this.service.persist
+  }
 }
